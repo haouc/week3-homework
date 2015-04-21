@@ -1,0 +1,33 @@
+<style>
+  h2 {
+    color: white;
+    background: #555;
+    padding: 6px;
+    text-align: left;
+  }
+  
+</style>
+
+<h2>"Edit Here"</h2>
+
+<form action="/places/:id/update" method="get" >
+
+Edit the title of your new place here:<br>
+<textarea name="utitle" cols="50" rows="1" ><%= @place.title %></textarea><br>
+<br>
+<br>
+Edit the URL of your place here:<br>
+<textarea name="uphoto_url" cols="75" rows="1" ><%= @place.photo_url %></textarea><br>
+<br>
+<br>
+Edit the admission price of your place here:<br>
+<textarea name="uadmission_price" cols="25" rows="1" >$<%= @place.admission_price/100 %></textarea> <br>
+<br>
+<br>
+Edit your description here:<br>
+<textarea name="udescription" cols="100" rows="10" ><%= @place.description %></textarea>
+<br>
+<button class="btn btn-primary" type="submit">Update</button>
+<button class="btn btn-primary" type="reset">Reset</button>
+
+</form>

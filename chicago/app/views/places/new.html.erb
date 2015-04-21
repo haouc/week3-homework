@@ -1,0 +1,33 @@
+<style>
+  h2 {
+    color: white;
+    background: #555;
+    padding: 6px;
+    text-align: left;
+  }
+  
+</style>
+
+<h2>"New Place Add Here"</h2>
+
+<form action="/places/create" method="get" >
+
+Enter the title of your new place here:<br>
+<input name="ntitle" type="text" size="50"><br>
+<br>
+<br>
+Enter the URL of your place here:<br>
+<input name="nphoto_url" type="text" size="75"><br>
+<br>
+<br>
+Enter the admission price of your place here:<br>
+<input name="nadmission_price" type="text" size="25"><br>
+<br>
+
+
+<br>
+Enter your description here:<br>
+<textarea name="ndescription" cols="100" rows="10" ></textarea>
+<br>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>

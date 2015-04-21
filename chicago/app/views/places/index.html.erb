@@ -1,0 +1,27 @@
+
+<style>
+  h2 {
+    color: blue;
+    background: #999;
+    padding: 2px;
+    text-align: center;
+  }
+
+</style>
+
+
+
+<h2><%= link_to "ADD PLACE", "/places/new" %></h2>
+<ul>
+
+  <% @places.each do |place| %>
+
+    <li>
+      <%= link_to place[:title], "/places/#{place.id}" %>
+      (Admission Price: $ <%= place[:admission_price]/100.0 %>) 
+      <%= link_to "DELETE", "/places/#{place.id}/delete" %> 
+      <%= link_to "EDIT", "/places/#{place.id}/edit" %> 
+    </li>
+  <% end %>
+
+</ul>
