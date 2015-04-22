@@ -4,6 +4,12 @@ Place
   admission_price: integer
   description: string
 
+Review
+  placeid: integer
+  title: string
+  rate: integer
+  description: string
+
 # Example table for a typical Book model.
 #
 # Book

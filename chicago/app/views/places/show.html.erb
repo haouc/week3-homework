@@ -1,3 +1,4 @@
+
 <style>
   h2 {
     color: white;
@@ -26,7 +27,39 @@
 
 <p>
   <span class="admission_price">Admission: $ <%= @place[:admission_price]/100.0 %></span>
+  <img src = <%= @place[:photo_url] %> />
+  <!-- <%= image_tag @place[:photo_url] %> -->
   <%= @place[:description] %>
 </p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p>
+<h3>
+Please leave your review                                                 
+</h3>
+</p>
+<p>
+<form action="/places/<%= @place[:id] %>/reviews" method="get" >
 
-<%= image_tag @place[:photo_url] %>
+Enter the title of your review:<br>
+<input name="reviewtitle" type="text" size="50"><br>
+
+Enter your rate:<br>
+<input name="reviewrate" type="text" size="25"> / 5<br>
+
+Enter your review here:<br>
+<textarea name="reviewbody" cols="100" rows="5" ></textarea>
+<br>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<br>
+  <% count = 0 %>
+  <% @reviews.each do |review| %>
+    <li>
+      Review <%= count=count+1 %>:
+      <%= review[:title] %>
+      (Rate: <%= review[:rate] %>),
+      <%= review[:description] %>
+    </li>
+  <% end %>
+</p>
+

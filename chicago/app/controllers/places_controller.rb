@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 
   def show
   	@place = Place.find_by(:id => params["id"])
+    @reviews = Review.where(:placeid => params["id"]).reverse_order
   	if @place != nil
   		render "show"
   	else
@@ -39,30 +40,35 @@ class PlacesController < ApplicationController
 
   def edit
   	@place = Place.find_by(:id => params["id"])
-  	# @update_id = params["id"]
+  
+  	@id = params["id"]
   	render "edit"
 
   end
+
   def update
-  	# @place = Place.find_by(:id => params["id"])
+  	@place = Place.find_by(:id => params["id"])
   	
   	@place[:title]=params["utitle"]
   	@place[:photo_url]=params["uphoto_url"]
   	@place[:admission_price]=params["uadmission_price"].to_f*100
   	@place[:description]=params["udescription"]
-  	@place.update
+  	@place.save
   	redirect_to "/"
   end
-  # def update
-  # 	# @place = Place.find_by(:id => params["id"])
-  # 	p=@place
-  # 	p[:title]=params["utitle"]
-  # 	p[:photo_url]=params["uphoto_url"]
-  # 	p[:admission_price]=params["uadmission_price"].to_f*100
-  # 	p[:description]=params["udescription"]
-  # 	p.update
-  # 	redirect_to "/"
-  # end
+
+  def reviews
+    @review = Review.where(:placeid => params["id"]).reverse_order
+    @place = Place.find_by(:id => params["id"])
+    r=Review.new
+    r[:placeid]=params["id"]
+    r[:title]=params["reviewtitle"]
+    r[:rate]=params["reviewrate"]
+    r[:description]=params["reviewbody"]
+    r.save
+    redirect_to "/places/#{@place[:id]}"
+  end
+
 
 end
     
