@@ -15,8 +15,8 @@
     float: left;
     margin-right: 40px;
     box-shadow: 8px 8px 4px gray;
-    width: "400px";
-    height: "300px"
+/*    width: "400px";
+    height: "300px"*/
   }
   p {
     margin-top: 24px;
@@ -27,18 +27,17 @@
 <h2><%= @place[:title] %></h2>
 
 <p>
+  <img src=<%= @place[:photo_url] %> alt="Image Not Available"/ height="400" width="600">
   <span class="admission_price">Admission: $ <%= @place[:admission_price]/100.0 %></span>
-  <img src = <%= @place[:photo_url] %> />
-  <!-- <%= image_tag @place[:photo_url] %> -->
   <%= @place[:description] %>
+  <br>
 </p>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <p>
 <h3>
 Please leave your review                                                 
 </h3>
-</p>
-<p>
+
 <form action="/places/<%= @place[:id] %>/reviews" method="get" >
 
 Enter the title of your review:<br>
@@ -55,12 +54,16 @@ Enter your review here:<br>
 <br>
   <% count = 0 %>
   <% @reviews.each do |review| %>
+  <% if(review[:title].to_s != "") %>
+  <ul>
     <li>
-      Review <%= count=count+1 %>:
-      <%= review[:title] %>
-      (Rate: <%= review[:rate] %> / 5),
-      <%= review[:description] %>
+        Review <%= count=count+1 %>:
+        <%= review[:title] %>
+        (Rate: <%= review[:rate] %> / 5),
+        <%= review[:description] %>
     </li>
+  </ul>
+  <% end %>
   <% end %>
 </p>
 

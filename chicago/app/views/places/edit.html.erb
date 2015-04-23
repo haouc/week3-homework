@@ -13,7 +13,7 @@
 <form action="/places/<%= @id%>/update" method="get" >
 
 Edit the title of your new place here:<br>
-<textarea name="utitle" cols="50" rows="1" ><%= @place.title %></textarea><br>
+<textarea name="utitle" cols="50" rows="1" maxlength = "255"><%= @place.title %></textarea><br>
 <br>
 <br>
 Edit the URL of your place here:<br>
@@ -21,7 +21,7 @@ Edit the URL of your place here:<br>
 <br>
 <br>
 Edit the admission price of your place here:<br>
-$<textarea name="uadmission_price" cols="25" rows="1" ><%= @place.admission_price/100 %></textarea> <br>
+<textarea name="uadmission_price" cols="25" rows="1" ><%= @place.admission_price/100 %></textarea> in dollar<br>
 <br>
 <br>
 Edit your description here:<br>

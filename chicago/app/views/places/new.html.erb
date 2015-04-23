@@ -13,7 +13,7 @@
 <form action="/places/create" method="get" >
 
 Enter the title of your new place here:<br>
-<input name="ntitle" type="text" size="50"><br>
+<input name="ntitle" type="text" maxlength="255" size="50"><br>
 <br>
 <br>
 Enter the URL of your place here:<br>
@@ -21,10 +21,8 @@ Enter the URL of your place here:<br>
 <br>
 <br>
 Enter the admission price of your place here:<br>
-<input name="nadmission_price" type="text" size="25"><br>
+<input name="nadmission_price" type="text" size="25"> in dollar<br>
 <br>
-
-
 <br>
 Enter your description here:<br>
 <textarea name="ndescription" cols="100" rows="10" ></textarea>
