@@ -30,8 +30,9 @@
   <img src=<%= @place[:photo_url] %> alt="Image Not Available"/ height="400" width="600">
   <span class="admission_price">Admission: $ <%= @place[:admission_price]/100.0 %></span>
   <%= @place[:description] %>
-  <br>
 </p>
+
+  <%= link_to "EDIT", "/places/#{@place.id}/edit" %> 
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <p>
 <h3>

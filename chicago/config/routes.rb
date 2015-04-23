@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root 'places#index'
   get '/places' => 'place#index'
-
   get '/places/new' => 'places#new'
   get '/places/create' => 'places#create'
   get '/places/:id/delete' => 'places#delete'
